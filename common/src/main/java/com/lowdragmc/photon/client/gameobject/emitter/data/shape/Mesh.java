@@ -11,6 +11,7 @@ import com.lowdragmc.lowdraglib.gui.texture.GuiTextureGroup;
 import com.lowdragmc.lowdraglib.gui.texture.IGuiTexture;
 import com.lowdragmc.lowdraglib.gui.texture.TextTexture;
 import com.lowdragmc.lowdraglib.gui.widget.ImageWidget;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.lowdraglib.utils.Vector3fHelper;
 import com.lowdragmc.photon.client.gameobject.emitter.IParticleEmitter;
 import com.lowdragmc.photon.client.gameobject.particle.TileParticle;
@@ -93,7 +94,7 @@ public class Mesh implements IShape {
                 if (mesh != null) {
                     meshData.deserializeNBT(mesh.serializeNBT());
                 }
-            }, meshData.meshName, true, meshesResource.allResources().map(Map.Entry::getKey).map(meshesResource::getResourceName).toList(), String::toString);
+            }, meshData.meshName, true, meshesResource.allResources().map(Map.Entry::getKey).map(meshesResource::getResourceName).toList(), LocalizationUtils::format);
             selector.setDraggingConsumer(
                     o -> o instanceof MeshData,
                     o -> selector.getSelector().setButtonBackground(ColorPattern.GREEN.rectTexture().setRadius(5)),
@@ -109,8 +110,8 @@ public class Mesh implements IShape {
         } else {
             ImageWidget imageWidget;
             IGuiTexture texture;
-            var wrapper = new WrapperConfigurator("", imageWidget = new ImageWidget(0, 0, 200, 10, new GuiTextureGroup(texture = ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("meshName").setType(TextTexture.TextType.ROLL_ALWAYS).setWidth(200))));
-            wrapper.setTips("drag a mesh.");
+            var wrapper = new WrapperConfigurator("", imageWidget = new ImageWidget(0, 0, 200, 10, new GuiTextureGroup(texture = ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("photon.gui.editor.mesh.mesh_name").setType(TextTexture.TextType.ROLL_ALWAYS).setWidth(200))));
+            wrapper.setTips("photon.gui.editor.mesh.drag_mesh");
             imageWidget.setDraggingConsumer(
                     o -> o instanceof MeshData,
                     o -> texture.setColor(ColorPattern.GREEN.color),

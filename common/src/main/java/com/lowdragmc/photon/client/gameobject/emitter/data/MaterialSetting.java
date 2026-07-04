@@ -61,10 +61,10 @@ public class MaterialSetting implements IConfigurable, ITagSerializable<Compound
     @Override
     public void buildConfigurator(ConfiguratorGroup father) {
         IConfigurable.super.buildConfigurator(father);
-        var setting = new ConfiguratorGroup("Setting");
+        var setting = new ConfiguratorGroup("photon.gui.editor.material.setting");
         material.buildConfigurator(setting);
         ImageWidget preview;
-        var wrapper = new WrapperConfigurator("preview", preview = new ImageWidget(0, 0, 50, 50, () -> material.preview()).setBorder(2, ColorPattern.T_WHITE.color));
+        var wrapper = new WrapperConfigurator("photon.gui.editor.material.preview", preview = new ImageWidget(0, 0, 50, 50, () -> material.preview()).setBorder(2, ColorPattern.T_WHITE.color));
         preview.setDraggingConsumer(
                 o -> o instanceof IMaterial,
                 o -> preview.setBorder(2, ColorPattern.GREEN.color),

@@ -4,6 +4,7 @@ import com.lowdragmc.lowdraglib.gui.editor.accessors.TypesAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.annotation.ConfigAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.Configurator;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.ConfiguratorSelectorConfigurator;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction3;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction3Config;
@@ -53,7 +54,9 @@ public class NumberFunction3Accessor extends TypesAccessor<NumberFunction3> {
                 isSeperated.set(true);
             }
             return new ConfiguratorSelectorConfigurator<>(name, false, isSeperated::get, isSeperated::set, isSeperated.get(), true,
-                    List.of(true, false), v -> v ? "Separate Axes" : "All in one", (v, father) -> {
+                    List.of(true, false), v -> LocalizationUtils.format(v ?
+                            "photon.gui.editor.number_function.separate_axes" :
+                            "photon.gui.editor.number_function.all_in_one"), (v, father) -> {
                 if (v) {
                     father.addConfigurators(new NumberFunction3Configurator("", supplier, consumer, forceUpdate, config));
                 } else {

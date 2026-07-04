@@ -7,6 +7,7 @@ import com.lowdragmc.lowdraglib.gui.texture.IGuiTexture;
 import com.lowdragmc.lowdraglib.gui.util.TreeBuilder;
 import com.lowdragmc.lowdraglib.gui.widget.ButtonWidget;
 import com.lowdragmc.lowdraglib.gui.widget.WidgetGroup;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.lowdraglib.utils.Size;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunctionConfig;
@@ -53,7 +54,7 @@ public class NumberFunctionConfigurator extends ValueConfigurator<NumberFunction
                     if (Editor.INSTANCE != null) {
                         var menu = TreeBuilder.Menu.start();
                         for (Class<? extends NumberFunction> type : config.types()) {
-                            menu.leaf(type == value.getClass() ?Icons.CHECK : IGuiTexture.EMPTY, type.getSimpleName(), () -> {
+                            menu.leaf(type == value.getClass() ?Icons.CHECK : IGuiTexture.EMPTY, LocalizationUtils.format(type.getSimpleName()), () -> {
                                 if (type == value.getClass()) return;
                                 try {
                                     var newValue = type.getConstructor(NumberFunctionConfig.class).newInstance(config);

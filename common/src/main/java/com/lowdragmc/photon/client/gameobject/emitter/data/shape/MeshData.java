@@ -221,9 +221,9 @@ public class MeshData implements ITagSerializable<CompoundTag>, IConfigurable {
 
     @Override
     public void buildConfigurator(ConfiguratorGroup father) {
-        var wrapper = new WrapperConfigurator("", new ButtonWidget(0, 0, 200, 10, new GuiTextureGroup(ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("meshName").setType(TextTexture.TextType.ROLL_ALWAYS).setWidth(200)),cd -> {
+        var wrapper = new WrapperConfigurator("", new ButtonWidget(0, 0, 200, 10, new GuiTextureGroup(ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("photon.gui.editor.mesh.mesh_name").setType(TextTexture.TextType.ROLL_ALWAYS).setWidth(200)),cd -> {
             File path = new File(Editor.INSTANCE.getWorkSpace(), "assets/ldlib/models");
-            DialogWidget.showFileDialog(Editor.INSTANCE, "select a model", path, true,
+            DialogWidget.showFileDialog(Editor.INSTANCE, "photon.gui.editor.mesh.select_model", path, true,
                     DialogWidget.suffixFilter(".json"), r -> {
                         if (r != null && r.isFile()) {
                             var lastName = meshName;
@@ -233,7 +233,7 @@ public class MeshData implements ITagSerializable<CompoundTag>, IConfigurable {
                         }
                     });
         }));
-        wrapper.setTips("click to select a minecraft model file.");
+        wrapper.setTips("photon.gui.editor.mesh.click_select_model");
         father.addConfigurators(wrapper);
     }
 

@@ -197,7 +197,7 @@ public class CustomShaderMaterial extends ShaderInstanceMaterial {
         preview.addWidget(new ButtonWidget(0, 0, 100, 100, IGuiTexture.EMPTY, cd -> {
             if (Editor.INSTANCE == null) return;
             File path = new File(Editor.INSTANCE.getWorkSpace(), "assets/ldlib/shaders/core");
-            DialogWidget.showFileDialog(Editor.INSTANCE, "select a shader config", path, true,
+            DialogWidget.showFileDialog(Editor.INSTANCE, "photon.gui.editor.shader.select_config", path, true,
                     DialogWidget.suffixFilter(".json"), r -> {
                         if (r != null && r.isFile()) {
                             shader = new ResourceLocation("ldlib:" + r.getName().substring(0, r.getName().length() - 5));
@@ -208,7 +208,7 @@ public class CustomShaderMaterial extends ShaderInstanceMaterial {
                         }
                     });
         }));
-        preview.addWidget(new ButtonWidget(5, 110, 90, 10, new GuiTextureGroup(ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("recompile")), cd -> {
+        preview.addWidget(new ButtonWidget(5, 110, 90, 10, new GuiTextureGroup(ColorPattern.T_GRAY.rectTexture().setRadius(5), new TextTexture("photon.gui.editor.shader.recompile")), cd -> {
             recompile();
             updateShaderUniformConfigurator(shaderConfigurator);
             father.computeLayout();
@@ -220,7 +220,7 @@ public class CustomShaderMaterial extends ShaderInstanceMaterial {
         // shader configurator
         father.addConfigurators(base);
         super.buildConfigurator(father);
-        father.addConfigurators(new WrapperConfigurator("uniform settings", shaderConfigurator));
+        father.addConfigurators(new WrapperConfigurator("photon.gui.editor.shader.uniform_settings", shaderConfigurator));
     }
 
     public void updateShaderUniformConfigurator(WidgetGroup group) {

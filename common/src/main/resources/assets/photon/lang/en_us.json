@@ -38,7 +38,6 @@
   "photon.emitter.config.noise": "Add noise/turbulence to particle movement. If you have many particles, you should also check parallelUpdate for better performance.",
   "photon.emitter.config.uvAnimation": "Particle UV animation. This allows you to specify a texture sheet (a texture with multiple tiles/subframes) and animate or randomize over it per particle.",
   "photon.emitter.config.trails": "Attach trails to the particles.",
-
   "photon.emitter.config.colorBySpeed.color": "Controls the color by its speed.",
   "photon.emitter.config.colorBySpeed.speedRange": "Remaps speed in the defined range to a color.",
   "photon.emitter.config.colorOverLifetime.color": "Controls the color during its lifetime.",
@@ -111,7 +110,6 @@
   "photon.emitter.config.shape.scale": "Scale the emission shape.",
   "photon.emitter.config.shape.mesh.type": "Generate particles from vertices, edges or triangles.",
   "photon.emitter.config.shape.mesh.mesh": "drag to / select a mesh.",
-
   "photon.emitter.config.material.preview": "Replace the material by dragging it into the preview.",
   "photon.emitter.trail.config.time": "How long the tail should be (ticks)[O, infinity].",
   "photon.emitter.trail.config.minVertexDistance": "The minimum distance each trail can travel before adding a new vertex.",
@@ -122,7 +120,6 @@
   "photon.emitter.trail.config.uvMode": "Should the U coordinate be stretched or tiled?",
   "photon.emitter.trail.config.widthOverTrail": "Select a width for the trail from its start to end vertex.",
   "photon.emitter.trail.config.colorOverTrail": "Select a color for the trail from its start to end vertex.",
-
   "photon.emitter.config.sub_emitters": "Sub emission of particles. This allows each particle to emit particles in another system.",
   "photon.emitter.config.sub_emitters.emitter.name": "Drag/Select an emitter here (using emitter name).",
   "photon.emitter.config.sub_emitters.emitter.event": "Event to trigger the emission.",
@@ -133,12 +130,10 @@
   "photon.emitter.config.sub_emitters.emitter.inherit_lifetime": "Inherit age from the parent particle.",
   "photon.emitter.config.sub_emitters.emitter.inherit_duration": "Inherit duration from the parent particle.",
   "photon.emitter.config.sub_emitters.emitter.emit_probability": "Determines the proportion of sub-emitter spawn events that successfully triggers the associated sub-emitter.",
-
   "photon.emitter.beam.config.end": "Beam end offset.",
   "photon.emitter.beam.config.width": "Controls the width during its lifetime.",
   "photon.emitter.beam.config.emitRate": "Controls the emit rate during its lifetime.",
   "photon.emitter.beam.config.color": "Controls the color during its lifetime.",
-
   "photon.gui.editor.fx_info.restart": "Restart",
   "photon.gui.editor.fx_info.particles": "Particles",
   "photon.gui.editor.fx_info.time": "Time",
@@ -148,24 +143,50 @@
   "photon.gui.editor.fx_info.drag_all": "Drag All",
   "photon.gui.editor.fx_info.reset_pos": "reset pos",
   "photon.gui.editor.fx_info.cull_box": "Cull-box",
-
   "ldlib.gui.editor.register.editor.fx.scene": "scene",
   "photon.gui.editor.menu.scene.real_world": "Real World",
-
   "photon.gui.editor.shape.function.tooltips.0": "§et§r denotes the lifetime of the emitter, [0, 1)",
   "photon.gui.editor.shape.function.tooltips.1": "§ePI§r denotes the π constant",
   "photon.gui.editor.shape.function.tooltips.2": "§erandomA..E§r denotes a random value [0, 1), which has the same value in the same expression",
   "photon.gui.editor.shape.function.tooltips.3": "example: PI * (2 + t) + randomA / min(randomA, 0.5)",
   "photon.gui.editor.fx.is_sub_emitter": "sub emitter",
-
   "photon.gui.editor.fx.particle_panel.main": "Main FX",
   "photon.gui.editor.fx.particle_panel.sub": "%s (sub fx)",
   "photon.gui.editor.fx.particle_panel.add": "Add a new sub fx",
   "photon.gui.editor.fx.particle_panel.fx_object_list": "FX Object List",
-
   "curves": "Curves",
   "gradients": "Gradients",
   "material": "Material",
-  "mesh": "Mesh"
-
+  "mesh": "Mesh",
+  "photon.gui.editor.fx_info.fps": "FPS",
+  "photon.gui.editor.fx_info.unit.seconds": "%.2f s",
+  "photon.gui.editor.fx_info.unit.microseconds": "%d us",
+  "photon.gui.editor.fx_info.unit.fps": "%d fps",
+  "photon.gui.editor.fx_object.root": "root",
+  "photon.gui.editor.fx_object_list.add_emitter": "Add Emitter",
+  "photon.gui.editor.fx_object_list.copy_suffix": " copied",
+  "photon.gui.editor.curves.add_curve": "Add Curve",
+  "photon.gui.editor.curves.add_random_curve": "Add Random Curve",
+  "photon.gui.editor.curves.curve": "Curve",
+  "photon.gui.editor.gradients.add_gradient": "Add Gradient",
+  "photon.gui.editor.gradients.add_random_gradient": "Add Random Gradient",
+  "photon.gui.editor.gradients.gradient": "Gradient",
+  "photon.gui.editor.gradients.gradient0": "Gradient A",
+  "photon.gui.editor.gradients.gradient1": "Gradient B",
+  "photon.gui.editor.menu.scene.range": "Range",
+  "photon.gui.editor.curve.lock_control_points": "Lock Control Points",
+  "photon.gui.editor.curve.grid": "Grid",
+  "photon.gui.editor.curve.remove": "Remove",
+  "photon.gui.editor.mesh.mesh_name": "Mesh Name",
+  "photon.gui.editor.mesh.drag_mesh": "Drag a mesh here.",
+  "photon.gui.editor.mesh.select_model": "Select a model",
+  "photon.gui.editor.mesh.click_select_model": "Click to select a Minecraft model file.",
+  "photon.gui.editor.number_function.separate_axes": "Separate Axes",
+  "photon.gui.editor.number_function.all_in_one": "All in One",
+  "photon.gui.editor.material.setting": "Setting",
+  "photon.gui.editor.material.preview": "Preview",
+  "photon.gui.editor.shader.select_config": "Select a shader config",
+  "photon.gui.editor.shader.recompile": "Recompile",
+  "photon.gui.editor.shader.uniform_settings": "Uniform Settings",
+  "photon.gui.editor.noise.preview": "Noise Preview"
 }

@@ -8,6 +8,7 @@ import com.lowdragmc.lowdraglib.gui.editor.configurator.BooleanConfigurator;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.ConfiguratorGroup;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.ConfiguratorSelectorConfigurator;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.IConfigurable;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.lowdraglib.syncdata.IPersistedSerializable;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
 import com.lowdragmc.photon.client.gameobject.emitter.Emitter;
@@ -128,14 +129,14 @@ public class RendererSetting {
         public void buildConfigurator(ConfiguratorGroup father) {
             var configurator = new ConfiguratorSelectorConfigurator<>("renderMode",
                     false, this::getRenderMode, this::setRenderMode, Mode.Billboard, true,
-                    Arrays.stream(Mode.values()).toList(), Mode::name, (mode, container) -> {
+                    Arrays.stream(Mode.values()).toList(), mode -> LocalizationUtils.format(mode.name()), (mode, container) -> {
                 if (mode == Mode.Model) {
                     getModel().buildConfigurator(container);
                     var shadeConfigurator = new BooleanConfigurator("shade", this::isShade, this::setShade, true, true);
                     shadeConfigurator.setTips("photon.emitter.config.renderer.renderMode.model.shade");
                     container.addConfigurators(shadeConfigurator);
                     var useBlockUVConfigurator = new BooleanConfigurator("useBlockUV", this::isUseBlockUV, this::setUseBlockUV, true, true);
-                    shadeConfigurator.setTips("photon.emitter.config.renderer.renderMode.model.useBlockUV");
+                    useBlockUVConfigurator.setTips("photon.emitter.config.renderer.renderMode.model.useBlockUV");
                     container.addConfigurators(useBlockUVConfigurator);
                 }
             });

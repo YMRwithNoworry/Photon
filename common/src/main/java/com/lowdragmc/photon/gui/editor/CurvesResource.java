@@ -86,11 +86,11 @@ public class CurvesResource extends Resource<CurvesResource.Curves> {
         ResourceContainer<Curves, ImageWidget> container = new ResourceContainer<>(this, panel) {
             @Override
             protected TreeBuilder.Menu getMenu() {
-                return super.getMenu().leaf(Icons.ADD_FILE, "add curve", () -> {
+                return super.getMenu().leaf(Icons.ADD_FILE, "photon.gui.editor.curves.add_curve", () -> {
                     String randomName = genNewFileName();
                     resource.addBuiltinResource(randomName, new Curves());
                     reBuild();
-                }).leaf(Icons.ADD_FILE, "add random curve", () -> {
+                }).leaf(Icons.ADD_FILE, "photon.gui.editor.curves.add_random_curve", () -> {
                     String randomName = genNewFileName();
                     resource.addBuiltinResource(randomName, new Curves(new ECBCurves(), new ECBCurves(0, 0.2f, 0.1f, 0.2f, 0.9f, 0.2f, 1, 0.2f)));
                     reBuild();
@@ -115,14 +115,14 @@ public class CurvesResource extends Resource<CurvesResource.Curves> {
                     curveLine.setGridSize(new Size(6, 2));
                     curveLine.setHoverTips(coord -> Component.literal("x: %f, y:%f".formatted(coord.x, coord.y)));
                     curveLine.setBackground(new GuiTextureGroup(ColorPattern.BLACK.rectTexture(), ColorPattern.T_WHITE.borderTexture(-1)));
-                    var configurator = new WrapperConfigurator("color", curveLine);
+                    var configurator = new WrapperConfigurator("photon.gui.editor.curves.curve", curveLine);
                     father.addConfigurators(configurator);
                 } else {
                     var curveLine = new CurveLineWidget(0, 0, 180, 60, curves.curves0);
                     curveLine.setGridSize(new Size(6, 2));
                     curveLine.setHoverTips(coord -> Component.literal("x: %f, y:%f".formatted(coord.x, coord.y)));
                     curveLine.setBackground(new GuiTextureGroup(ColorPattern.BLACK.rectTexture(), ColorPattern.T_WHITE.borderTexture(-1)));
-                    var configurator = new WrapperConfigurator("color", curveLine);
+                    var configurator = new WrapperConfigurator("photon.gui.editor.curves.curve", curveLine);
                     father.addConfigurators(configurator);
                 }
             }

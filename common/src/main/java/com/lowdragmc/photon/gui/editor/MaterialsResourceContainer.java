@@ -6,6 +6,7 @@ import com.lowdragmc.lowdraglib.gui.editor.ui.ConfigPanel;
 import com.lowdragmc.lowdraglib.gui.editor.ui.ResourcePanel;
 import com.lowdragmc.lowdraglib.gui.editor.ui.resource.ResourceContainer;
 import com.lowdragmc.lowdraglib.gui.widget.ImageWidget;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.photon.client.gameobject.emitter.data.material.IMaterial;
 
 /**
@@ -24,7 +25,7 @@ public class MaterialsResourceContainer extends ResourceContainer<IMaterial, Ima
             for (var clazz : IMaterial.MATERIALS) {
                 try {
                     IMaterial icon = clazz.getConstructor().newInstance();
-                    menu.leaf(icon.preview(), clazz.getSimpleName(), () -> {
+                    menu.leaf(icon.preview(), LocalizationUtils.format(clazz.getSimpleName()), () -> {
                         resource.addBuiltinResource(genNewFileName(), icon);
                         reBuild();
                     });

@@ -70,7 +70,7 @@ public class ParticleInfoView extends FloatViewWidget {
             if (list != null) {
                 var selected = list.getSelected();
                 if (selected instanceof IParticleEmitter emitter) {
-                    return "%.2f (s)".formatted(emitter.getAge() / 20f);
+                    return LocalizationUtils.format("photon.gui.editor.fx_info.unit.seconds", emitter.getAge() / 20f);
                 }
             }
             return "0 / 0";
@@ -88,11 +88,14 @@ public class ParticleInfoView extends FloatViewWidget {
                 new ProgressTexture(ColorPattern.T_GRAY.rectTexture().setRadius(5).setRadius(5),
                         ColorPattern.GREEN.rectTexture().setRadius(5).setRadius(5))));
         // cpu time
-        addInformation("photon.gui.editor.fx_info.cpu_time", () ->  "%d us".formatted(panel.scene.getParticleManager().getCPUTime()));
+        addInformation("photon.gui.editor.fx_info.cpu_time", () ->
+                LocalizationUtils.format("photon.gui.editor.fx_info.unit.microseconds", panel.scene.getParticleManager().getCPUTime()));
         // frame time
-        addInformation("photon.gui.editor.fx_info.frame_time", () ->  "%d us".formatted(panel.scene.getParticleManager().getFrameTime()));
+        addInformation("photon.gui.editor.fx_info.frame_time", () ->
+                LocalizationUtils.format("photon.gui.editor.fx_info.unit.microseconds", panel.scene.getParticleManager().getFrameTime()));
         // fps
-        addInformation("FPS", () -> MinecraftAccessor.getFps() + " fps");
+        addInformation("photon.gui.editor.fx_info.fps", () ->
+                LocalizationUtils.format("photon.gui.editor.fx_info.unit.fps", MinecraftAccessor.getFps()));
         // draggable
         var group = addToggle("photon.gui.editor.fx_info.draggable", panel.project::isDraggable, panel.project::setDraggable);
         var textWidth = Minecraft.getInstance().font.width(LocalizationUtils.format("photon.gui.editor.fx_info.draggable")) + 6;

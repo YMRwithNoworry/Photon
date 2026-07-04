@@ -12,6 +12,7 @@ import com.lowdragmc.lowdraglib.gui.editor.runtime.PersistedParser;
 import com.lowdragmc.lowdraglib.gui.editor.ui.Editor;
 import com.lowdragmc.lowdraglib.syncdata.ITagSerializable;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.photon.client.fx.FX;
 import com.lowdragmc.photon.client.gameobject.emitter.IParticleEmitter;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.Constant;
@@ -183,7 +184,7 @@ public class SubEmittersSetting extends ToggleGroup implements IConfigurable, IT
                 project.getFx().getSubFXs().forEach((k, v) -> candidates.add(k));
             }
             var emitterSelector = new SelectorConfigurator<>("emitter", () -> emitter, v -> emitter = v,
-                    "", true, candidates, s -> s);
+                    "", true, candidates, LocalizationUtils::format);
             emitterSelector.setTips("photon.emitter.config.sub_emitters.emitter.name");
             father.addConfigurators(emitterSelector);
             IConfigurable.super.buildConfigurator(father);

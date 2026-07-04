@@ -120,7 +120,7 @@ public class NoiseSetting extends ToggleGroup {
     @Override
     public void buildConfigurator(ConfiguratorGroup father) {
         super.buildConfigurator(father);
-        father.addConfigurator(0, new WrapperConfigurator("Noise preview", new ImageWidget(0, 0, 100, 100, new NoisePreview(LDLib.random.nextGaussian() * 255))));
+        father.addConfigurator(0, new WrapperConfigurator("photon.gui.editor.noise.preview", new ImageWidget(0, 0, 100, 100, new NoisePreview(LDLib.random.nextGaussian() * 255))));
     }
 
 

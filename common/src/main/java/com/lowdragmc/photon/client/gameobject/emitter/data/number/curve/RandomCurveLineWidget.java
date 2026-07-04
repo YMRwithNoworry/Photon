@@ -118,11 +118,11 @@ public class RandomCurveLineWidget extends WidgetGroup {
 
     protected void openMenu(int mouseX, int mouseY) {
         var menu = TreeBuilder.Menu.start()
-                .leaf(lockControlPoint ? Icons.CHECK : IGuiTexture.EMPTY, "Lock Controll Points", () -> lockControlPoint = !lockControlPoint);
+                .leaf(lockControlPoint ? Icons.CHECK : IGuiTexture.EMPTY, "photon.gui.editor.curve.lock_control_points", () -> lockControlPoint = !lockControlPoint);
         if ((selectedPoint0 != -1 && curves0.size() > 1) || (selectedPoint1 != -1 && curves1.size() > 1)) {
             final var curves = selectedPoint0 == -1 ? curves1 : curves0;
             final var selectedPoint = selectedPoint0 == -1 ? selectedPoint1 : selectedPoint0;
-            menu.leaf("Remove", () -> {
+            menu.leaf("photon.gui.editor.curve.remove", () -> {
                 if (selectedPoint == 0) {
                     curves.remove(0);
                 } else if (selectedPoint > 0 && selectedPoint < curves.size()) {

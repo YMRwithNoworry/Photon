@@ -29,7 +29,7 @@ public class SceneMenu extends MenuTab {
 
     protected TreeBuilder.Menu createMenu() {
         var viewMenu = TreeBuilder.Menu.start();
-        viewMenu.branch("range", menu -> {
+        viewMenu.branch("photon.gui.editor.menu.scene.range", menu -> {
             for (int r : new int[]{1, 3, 5}) {
                 menu.leaf(this.range == r ? Icons.CHECK : IGuiTexture.EMPTY, "%d×%d×%d".formatted(r, r, r), () -> setRange(r));
             }

@@ -113,13 +113,13 @@ public class CurveLineWidget extends WidgetGroup {
 
     protected void openMenu(int mouseX, int mouseY) {
         var menu = TreeBuilder.Menu.start()
-                .leaf(lockControlPoint ? Icons.CHECK : IGuiTexture.EMPTY, "Lock Controll Points", () -> lockControlPoint = !lockControlPoint)
-                .branch("Grid", m -> m
+                .leaf(lockControlPoint ? Icons.CHECK : IGuiTexture.EMPTY, "photon.gui.editor.curve.lock_control_points", () -> lockControlPoint = !lockControlPoint)
+                .branch("photon.gui.editor.curve.grid", m -> m
                         .leaf("2×2", () -> setGridSize(new Size(2, 2)))
                         .leaf("6×2", () -> setGridSize(new Size(6, 2)))
                         .leaf("6×4", () -> setGridSize(new Size(6, 4))));
         if (selectedPoint != -1 && curves.size() > 1) {
-            menu.leaf("Remove", () -> {
+            menu.leaf("photon.gui.editor.curve.remove", () -> {
                 if (selectedPoint == 0) {
                     curves.remove(0);
                 } else if (selectedPoint > 0 && selectedPoint < curves.size()) {

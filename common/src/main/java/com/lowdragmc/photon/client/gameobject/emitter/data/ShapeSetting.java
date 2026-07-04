@@ -6,6 +6,7 @@ import com.lowdragmc.lowdraglib.gui.editor.configurator.IConfigurable;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.SelectorConfigurator;
 import com.lowdragmc.lowdraglib.syncdata.IPersistedSerializable;
 import com.lowdragmc.lowdraglib.syncdata.annotation.Persisted;
+import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.photon.client.gameobject.emitter.IParticleEmitter;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.curve.Curve;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.curve.CurveConfig;
@@ -83,7 +84,7 @@ public class ShapeSetting implements IConfigurable, IPersistedSerializable {
                 shape.buildConfigurator(group);
                 father.computeLayout();
             }
-        }, "Sphere", true, PhotonLDLibPlugin.REGISTER_SHAPES.keySet().stream().toList(), String::toString);
+        }, "Sphere", true, PhotonLDLibPlugin.REGISTER_SHAPES.keySet().stream().toList(), LocalizationUtils::format);
         selector.setMax(PhotonLDLibPlugin.REGISTER_SHAPES.size());
         father.addConfigurators(selector);
         group.setCanCollapse(false);

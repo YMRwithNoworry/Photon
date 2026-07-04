@@ -77,11 +77,11 @@ public class GradientsResource extends Resource<GradientsResource.Gradients> {
         ResourceContainer<Gradients, ImageWidget> container = new ResourceContainer<>(this, panel) {
             @Override
             protected TreeBuilder.Menu getMenu() {
-                return super.getMenu().leaf(Icons.ADD_FILE, "add gradient", () -> {
+                return super.getMenu().leaf(Icons.ADD_FILE, "photon.gui.editor.gradients.add_gradient", () -> {
                     String randomName = genNewFileName();
                     resource.addBuiltinResource(randomName, new Gradients());
                     reBuild();
-                }).leaf(Icons.ADD_FILE, "add random gradient", () -> {
+                }).leaf(Icons.ADD_FILE, "photon.gui.editor.gradients.add_random_gradient", () -> {
                     String randomName = genNewFileName();
                     resource.addBuiltinResource(randomName, new Gradients(new GradientColor(), new GradientColor(0xff000000)));
                     reBuild();
@@ -101,10 +101,10 @@ public class GradientsResource extends Resource<GradientsResource.Gradients> {
                 var curves = getResource(key);
                 if (curves.isRandomGradient()) {
                     father.addConfigurators(
-                            new WrapperConfigurator("gradient0", new GradientColorWidget(0, 0, 180, curves.gradient0)),
-                            new WrapperConfigurator("gradient1", new GradientColorWidget(0, 0, 180, curves.gradient1)));
+                            new WrapperConfigurator("photon.gui.editor.gradients.gradient0", new GradientColorWidget(0, 0, 180, curves.gradient0)),
+                            new WrapperConfigurator("photon.gui.editor.gradients.gradient1", new GradientColorWidget(0, 0, 180, curves.gradient1)));
                 } else {
-                    father.addConfigurators(new WrapperConfigurator("gradient", new GradientColorWidget(0, 0, 180, curves.gradient0)));
+                    father.addConfigurators(new WrapperConfigurator("photon.gui.editor.gradients.gradient", new GradientColorWidget(0, 0, 180, curves.gradient0)));
                 }
             }
         });

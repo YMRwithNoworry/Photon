@@ -105,7 +105,8 @@ public class FXObjectsList extends DraggableScrollableWidgetGroup {
         container.addWidget(new ButtonWidget(10, 0, width - 20, 10, cd -> setSelectedFX(fxObject)));
         // add fxObject name
         container.addWidget(new TextTextureWidget(10, 0, width - 20 , 10)
-                .setText(() -> Component.literal(fxObject.getName()))
+                .setText(() -> Component.literal(fxObject == panel.runtime.getRoot() ?
+                        LocalizationUtils.format("photon.gui.editor.fx_object.root") : fxObject.getName()))
                 .textureStyle(t -> t.setType(TextTexture.TextType.LEFT_HIDE))
                 .setHoverTexture(ColorPattern.T_GRAY.rectTexture()).setDraggingConsumer(
                         o -> o instanceof IParticleEmitter e && e != fxObject && !fxObject.transform().isInheritedParent(e.transform()),
@@ -133,9 +134,9 @@ public class FXObjectsList extends DraggableScrollableWidgetGroup {
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
         if (isMouseOverElement(mouseX, mouseY) && button == 1) {
             var menu = TreeBuilder.Menu.start()
-                    .branch(Icons.ADD_FILE, "add emitter", m -> {
+                    .branch(Icons.ADD_FILE, "photon.gui.editor.fx_object_list.add_emitter", m -> {
                         for (var wrapper : PhotonLDLibPlugin.REGISTER_FX_OBJECTS.values()) {
-                            m.leaf(wrapper.annotation().name(), () -> {
+                            m.leaf(LocalizationUtils.format(wrapper.annotation().name()), () -> {
                                 var emitter = wrapper.creator().get();
                                 var name = emitter.getName();
                                 var index = 0;
@@ -165,7 +166,7 @@ public class FXObjectsList extends DraggableScrollableWidgetGroup {
                 menu.leaf(Icons.COPY, "ldlib.gui.editor.menu.copy", () -> {
                     var name = selected.getName();
                     var copied = deepCopyFXObject(selected, selected.transform().parent());
-                    copied.setName(name + " copied");
+                    copied.setName(name + LocalizationUtils.format("photon.gui.editor.fx_object_list.copy_suffix"));
                     updateList();
                 });
                 menu.leaf(Icons.REMOVE_FILE, "ldlib.gui.editor.menu.remove", () -> {
