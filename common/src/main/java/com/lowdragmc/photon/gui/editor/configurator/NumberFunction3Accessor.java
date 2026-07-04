@@ -4,10 +4,10 @@ import com.lowdragmc.lowdraglib.gui.editor.accessors.TypesAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.annotation.ConfigAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.Configurator;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.ConfiguratorSelectorConfigurator;
-import com.lowdragmc.lowdraglib.utils.LocalizationUtils;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction3;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction3Config;
+import com.lowdragmc.photon.gui.editor.PhotonLocalization;
 
 import java.lang.reflect.Field;
 import java.util.List;
@@ -34,6 +34,7 @@ public class NumberFunction3Accessor extends TypesAccessor<NumberFunction3> {
 
     @Override
     public Configurator create(String name, Supplier<NumberFunction3> supplier, Consumer<NumberFunction3> consumer, boolean forceUpdate, Field field) {
+        var localizedName = PhotonLocalization.format(name);
         var config = field.getAnnotation(NumberFunction3Config.class);
         var value = supplier.get();
         Consumer<NumberFunction> singleConsumer = number -> {
@@ -53,8 +54,8 @@ public class NumberFunction3Accessor extends TypesAccessor<NumberFunction3> {
             if (!NumberFunction.isEqual(value.x, value.y) || !NumberFunction.isEqual(value.y, value.z)) {
                 isSeperated.set(true);
             }
-            return new ConfiguratorSelectorConfigurator<>(name, false, isSeperated::get, isSeperated::set, isSeperated.get(), true,
-                    List.of(true, false), v -> LocalizationUtils.format(v ?
+            return new ConfiguratorSelectorConfigurator<>(localizedName, false, isSeperated::get, isSeperated::set, isSeperated.get(), true,
+                    List.of(true, false), v -> PhotonLocalization.format(v ?
                             "photon.gui.editor.number_function.separate_axes" :
                             "photon.gui.editor.number_function.all_in_one"), (v, father) -> {
                 if (v) {
@@ -66,9 +67,9 @@ public class NumberFunction3Accessor extends TypesAccessor<NumberFunction3> {
             });
         } else {
             if (config.isSeperatedDefault()) {
-                return new NumberFunction3Configurator(name, supplier, consumer, forceUpdate, config);
+                return new NumberFunction3Configurator(localizedName, supplier, consumer, forceUpdate, config);
             } else {
-                return new NumberFunctionConfigurator(name, singleSupplier, singleConsumer, forceUpdate, config.common());
+                return new NumberFunctionConfigurator(localizedName, singleSupplier, singleConsumer, forceUpdate, config.common());
             }
         }
     }

@@ -3,6 +3,7 @@ package com.lowdragmc.photon.gui.editor.configurator;
 import com.lowdragmc.lowdraglib.gui.editor.accessors.TypesAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.annotation.ConfigAccessor;
 import com.lowdragmc.lowdraglib.gui.editor.configurator.Configurator;
+import com.lowdragmc.photon.gui.editor.PhotonLocalization;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunction;
 import com.lowdragmc.photon.client.gameobject.emitter.data.number.NumberFunctionConfig;
 
@@ -29,6 +30,6 @@ public class NumberFunctionAccessor extends TypesAccessor<NumberFunction> {
 
     @Override
     public Configurator create(String name, Supplier<NumberFunction> supplier, Consumer<NumberFunction> consumer, boolean forceUpdate, Field field) {
-        return new NumberFunctionConfigurator(name, supplier, consumer, forceUpdate, field.getAnnotation(NumberFunctionConfig.class));
+        return new NumberFunctionConfigurator(PhotonLocalization.format(name), supplier, consumer, forceUpdate, field.getAnnotation(NumberFunctionConfig.class));
     }
 }
