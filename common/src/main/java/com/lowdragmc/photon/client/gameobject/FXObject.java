@@ -34,7 +34,7 @@ public class FXObject extends Particle implements IFXObject {
     @Nullable
     private IScene scene;
     @Accessors(fluent = true)
-    @Configurable(subConfigurable = true, collapse = false)
+    @Configurable(name = "photon.gui.editor.config.transform", subConfigurable = true, collapse = false)
     public final Transform transform = new Transform(this);
     // runtime
     @Nullable

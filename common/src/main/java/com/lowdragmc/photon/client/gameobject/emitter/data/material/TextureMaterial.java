@@ -33,10 +33,10 @@ import java.io.File;
 @ParametersAreNonnullByDefault
 public class TextureMaterial extends ShaderInstanceMaterial {
 
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.texture")
     public ResourceLocation texture = new ResourceLocation("textures/particle/glow.png");
 
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.discard_threshold")
     @NumberRange(range = {0, 1})
     public float discardThreshold = 0.01f;
 

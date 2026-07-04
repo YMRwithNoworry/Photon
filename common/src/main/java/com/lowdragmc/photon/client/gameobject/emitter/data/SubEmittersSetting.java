@@ -51,7 +51,7 @@ import java.util.function.Supplier;
 @Getter
 public class SubEmittersSetting extends ToggleGroup implements IConfigurable, ITagSerializable<CompoundTag> {
 
-    @Configurable(persisted = false)
+    @Configurable(name = "photon.gui.editor.config.emitters", persisted = false)
     protected List<Emitter> emitters = new ArrayList<>();
 
     @Override
@@ -108,7 +108,7 @@ public class SubEmittersSetting extends ToggleGroup implements IConfigurable, IT
 
         @Override
         public Configurator create(String name, Supplier<Emitter> supplier, Consumer<Emitter> consumer, boolean forceUpdate, Field field) {
-            var group = new ConfiguratorGroup("emitter", true);
+            var group = new ConfiguratorGroup("photon.gui.editor.config.emitter", true);
             var emitter = supplier.get();
             emitter = emitter == null ? new Emitter() : emitter;
             emitter.buildConfigurator(group);
@@ -127,23 +127,23 @@ public class SubEmittersSetting extends ToggleGroup implements IConfigurable, IT
     public static class Emitter implements IConfigurable {
         @Persisted
         protected String emitter = "";
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.event")
+        @Configurable(name = "photon.gui.editor.config.event", tips = "photon.emitter.config.sub_emitters.emitter.event")
         protected Event event = Event.Birth;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.emit_probability")
+        @Configurable(name = "photon.gui.editor.config.emit_probability", tips = "photon.emitter.config.sub_emitters.emitter.emit_probability")
         @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, min = 0, max = 1, curveConfig = @CurveConfig(bound = {0, 1}, xAxis = "probability", yAxis = "lifetime"))
         protected NumberFunction emitProbability = NumberFunction.constant(0);
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.tick_interval")
+        @Configurable(name = "photon.gui.editor.config.tick_interval", tips = "photon.emitter.config.sub_emitters.emitter.tick_interval")
         @NumberRange(range = {1, Integer.MAX_VALUE})
         protected int tickInterval = 1;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.inherit_color")
+        @Configurable(name = "photon.gui.editor.config.inherit_color", tips = "photon.emitter.config.sub_emitters.emitter.inherit_color")
         protected boolean inheritColor = false;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.inherit_size")
+        @Configurable(name = "photon.gui.editor.config.inherit_size", tips = "photon.emitter.config.sub_emitters.emitter.inherit_size")
         protected boolean inheritSize = false;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.inherit_rotation")
+        @Configurable(name = "photon.gui.editor.config.inherit_rotation", tips = "photon.emitter.config.sub_emitters.emitter.inherit_rotation")
         protected boolean inheritRotation = false;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.inherit_lifetime")
+        @Configurable(name = "photon.gui.editor.config.inherit_lifetime", tips = "photon.emitter.config.sub_emitters.emitter.inherit_lifetime")
         protected boolean inheritLifetime = false;
-        @Configurable(tips = "photon.emitter.config.sub_emitters.emitter.inherit_duration")
+        @Configurable(name = "photon.gui.editor.config.inherit_duration", tips = "photon.emitter.config.sub_emitters.emitter.inherit_duration")
         protected boolean inheritDuration = false;
 
         public void spawnEmitter(FX fx, TileParticle father) {
@@ -183,7 +183,7 @@ public class SubEmittersSetting extends ToggleGroup implements IConfigurable, IT
             if (Editor.INSTANCE instanceof FXEditor editor && editor.getCurrentProject() instanceof FXProject project) {
                 project.getFx().getSubFXs().forEach((k, v) -> candidates.add(k));
             }
-            var emitterSelector = new SelectorConfigurator<>("emitter", () -> emitter, v -> emitter = v,
+            var emitterSelector = new SelectorConfigurator<>("photon.gui.editor.config.emitter", () -> emitter, v -> emitter = v,
                     "", true, candidates, LocalizationUtils::format);
             emitterSelector.setTips("photon.emitter.config.sub_emitters.emitter.name");
             father.addConfigurators(emitterSelector);

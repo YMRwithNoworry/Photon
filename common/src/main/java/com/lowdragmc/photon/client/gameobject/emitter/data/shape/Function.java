@@ -22,7 +22,7 @@ import org.joml.Vector3f;
 public class Function implements IShape {
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.x", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",
@@ -31,7 +31,7 @@ public class Function implements IShape {
     private String x = "0";
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.y", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",
@@ -40,7 +40,7 @@ public class Function implements IShape {
     private String y = "0";
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.z", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",
@@ -50,7 +50,7 @@ public class Function implements IShape {
 
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.speed_x", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",
@@ -59,7 +59,7 @@ public class Function implements IShape {
     private String speedX = "0";
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.speed_y", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",
@@ -68,7 +68,7 @@ public class Function implements IShape {
     private String speedY = "0";
     @Getter
     @Setter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.speed_z", tips = {
             "photon.gui.editor.shape.function.tooltips.0",
             "photon.gui.editor.shape.function.tooltips.1",
             "photon.gui.editor.shape.function.tooltips.2",

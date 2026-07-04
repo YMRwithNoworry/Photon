@@ -21,15 +21,15 @@ public class Circle implements IShape {
 
     @Getter
     @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.radius")
     @NumberRange(range = {0, 1000})
     private float radius = .5f;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.radius_thickness")
     @NumberRange(range = {0, 1})
     private float radiusThickness = 1;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.arc")
     @NumberRange(range = {0, 360}, wheel = 10)
     private float arc = 360;
 

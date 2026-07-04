@@ -45,7 +45,7 @@ import java.util.Map;
 public class CustomShaderMaterial extends ShaderInstanceMaterial {
     private static final Map<ResourceLocation, ShaderInstance> COMPILED_SHADERS = new HashMap<>();
 
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.shader")
     public ResourceLocation shader = new ResourceLocation("photon:circle");
 
     protected CompoundTag uniformTag = new CompoundTag();

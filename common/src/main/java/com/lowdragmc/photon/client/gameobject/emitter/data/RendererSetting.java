@@ -49,31 +49,31 @@ public class RendererSetting {
         Translucent
     }
 
-    @Configurable(tips = "photon.emitter.config.renderer.layer")
+    @Configurable(name = "photon.gui.editor.config.layer", tips = "photon.emitter.config.renderer.layer")
     protected Layer layer = Layer.Translucent;
 
-    @Configurable(tips = "photon.emitter.config.renderer.bloomEffect")
+    @Configurable(name = "photon.gui.editor.config.bloom_effect", tips = "photon.emitter.config.renderer.bloomEffect")
     protected boolean bloomEffect = false;
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.renderer.bloomColor")
+    @Configurable(name = "photon.gui.editor.config.bloom_color", tips = "photon.emitter.config.renderer.bloomColor")
     @NumberColor
     protected int bloomColor = -1;
 
-    @Configurable(name = "cull", subConfigurable = true, tips = "photon.emitter.config.renderer.cull")
+    @Configurable(name = "photon.gui.editor.config.cull", subConfigurable = true, tips = "photon.emitter.config.renderer.cull")
     protected final Cull cull = new Cull();
 
     public static class Cull extends ToggleGroup {
         @Setter
         @Getter
-        @Configurable
+        @Configurable(name = "photon.gui.editor.config.from")
         @NumberRange(range = {-10000, 10000})
         protected Vector3f from = new Vector3f(-0.5f, -0.5f, -0.5f);
 
         @Setter
         @Getter
-        @Configurable
+        @Configurable(name = "photon.gui.editor.config.to")
         @NumberRange(range = {-10000, 10000})
         protected Vector3f to = new Vector3f(0.5f, 0.5f, 0.5f);
 
@@ -127,15 +127,15 @@ public class RendererSetting {
 
         @Override
         public void buildConfigurator(ConfiguratorGroup father) {
-            var configurator = new ConfiguratorSelectorConfigurator<>("renderMode",
+            var configurator = new ConfiguratorSelectorConfigurator<>("photon.gui.editor.config.render_mode",
                     false, this::getRenderMode, this::setRenderMode, Mode.Billboard, true,
                     Arrays.stream(Mode.values()).toList(), mode -> LocalizationUtils.format(mode.name()), (mode, container) -> {
                 if (mode == Mode.Model) {
                     getModel().buildConfigurator(container);
-                    var shadeConfigurator = new BooleanConfigurator("shade", this::isShade, this::setShade, true, true);
+                    var shadeConfigurator = new BooleanConfigurator("photon.gui.editor.config.shade", this::isShade, this::setShade, true, true);
                     shadeConfigurator.setTips("photon.emitter.config.renderer.renderMode.model.shade");
                     container.addConfigurators(shadeConfigurator);
-                    var useBlockUVConfigurator = new BooleanConfigurator("useBlockUV", this::isUseBlockUV, this::setUseBlockUV, true, true);
+                    var useBlockUVConfigurator = new BooleanConfigurator("photon.gui.editor.config.use_block_uv", this::isUseBlockUV, this::setUseBlockUV, true, true);
                     useBlockUVConfigurator.setTips("photon.emitter.config.renderer.renderMode.model.useBlockUV");
                     container.addConfigurators(useBlockUVConfigurator);
                 }

@@ -43,25 +43,25 @@ public class NoiseSetting extends ToggleGroup {
 
     private final ThreadLocal<PerlinNoise> noise = ThreadLocal.withInitial(PerlinNoise::new);
 
-    @Configurable(tips = "photon.emitter.config.noise.frequency")
+    @Configurable(name = "photon.gui.editor.config.frequency", tips = "photon.emitter.config.noise.frequency")
     @NumberRange(range = {Float.MIN_VALUE, Float.MAX_VALUE})
     protected float frequency = 1;
 
-    @Configurable(tips = "photon.emitter.config.noise.quality")
+    @Configurable(name = "photon.gui.editor.config.quality", tips = "photon.emitter.config.noise.quality")
     protected Quality quality = Quality.Noise2D;
 
-    @Configurable(subConfigurable = true, tips = "photon.emitter.config.noise.remap")
+    @Configurable(name = "photon.gui.editor.config.remap", subConfigurable = true, tips = "photon.emitter.config.noise.remap")
     protected final Remap remap = new Remap();
 
-    @Configurable(tips = "photon.emitter.config.noise.position")
+    @Configurable(name = "photon.gui.editor.config.position", tips = "photon.emitter.config.noise.position")
     @NumberFunction3Config(common = @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, curveConfig = @CurveConfig(bound = {0, 1}, xAxis = "lifetime", yAxis = "strength")))
     protected NumberFunction3 position = new NumberFunction3(0.1, 0.1, 0.1);
 
-    @Configurable(tips = "photon.emitter.config.noise.rotation")
+    @Configurable(name = "photon.gui.editor.config.rotation", tips = "photon.emitter.config.noise.rotation")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, wheelDur = 10, curveConfig = @CurveConfig(bound = {0, 180}, xAxis = "rotation amount", yAxis = "lifetime"))
     protected NumberFunction rotation = NumberFunction.constant(0);
 
-    @Configurable(tips = "photon.emitter.config.noise.size")
+    @Configurable(name = "photon.gui.editor.config.size", tips = "photon.emitter.config.noise.size")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, curveConfig = @CurveConfig(bound = {-1, 1}, xAxis = "size amount", yAxis = "lifetime"))
     protected NumberFunction size = NumberFunction.constant(0);
 
@@ -127,7 +127,7 @@ public class NoiseSetting extends ToggleGroup {
     public static class Remap extends ToggleGroup {
         @Setter
         @Getter
-        @Configurable
+        @Configurable(name = "photon.gui.editor.config.remap_curve")
         @NumberFunctionConfig(types = {Curve.class}, defaultValue = 1f, curveConfig = @CurveConfig(bound = {-1, 1}, xAxis = "base noise", yAxis = "remap result"))
         protected NumberFunction remapCurve = new Curve(Integer.MIN_VALUE, Integer.MAX_VALUE, -1, 1, 1f, "base noise", "remap result");
     }

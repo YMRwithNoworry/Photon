@@ -39,7 +39,7 @@ public class Mesh implements IShape {
 
     @Getter
     @Setter
-    @Configurable(tips = "photon.emitter.config.shape.mesh.type")
+    @Configurable(name = "photon.gui.editor.config.type", tips = "photon.emitter.config.shape.mesh.type")
     private Type type = Type.Triangle;
 
     @Getter
@@ -86,7 +86,7 @@ public class Mesh implements IShape {
         IShape.super.buildConfigurator(father);
         if (Editor.INSTANCE != null && Editor.INSTANCE.getCurrentProject() instanceof FXProject project &&
                 project.getResources().resources.get("mesh") instanceof MeshesResource meshesResource) {
-            var selector = new SelectorConfigurator<>("mesh", () -> meshData.meshName, name -> {
+            var selector = new SelectorConfigurator<>("photon.gui.editor.config.mesh", () -> meshData.meshName, name -> {
                 var mesh = meshesResource.getBuiltinResource(name);
                 if (mesh == null) {
                     mesh = meshesResource.getStaticResource(meshesResource.getStaticResourceFile(name));

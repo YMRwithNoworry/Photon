@@ -42,47 +42,47 @@ import javax.annotation.Nonnull;
 public class BeamConfig {
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.duration")
+    @Configurable(name = "photon.gui.editor.config.duration", tips = "photon.emitter.config.duration")
     @NumberRange(range = {1, Integer.MAX_VALUE})
     protected int duration = 100;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.looping")
+    @Configurable(name = "photon.gui.editor.config.looping", tips = "photon.emitter.config.looping")
     protected boolean looping = true;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.startDelay")
+    @Configurable(name = "photon.gui.editor.config.start_delay", tips = "photon.emitter.config.startDelay")
     @NumberRange(range = {0, Integer.MAX_VALUE})
     protected int startDelay = 0;
     @Getter
-    @Configurable(tips = "photon.emitter.beam.config.end")
+    @Configurable(name = "photon.gui.editor.config.end", tips = "photon.emitter.beam.config.end")
     @NumberRange(range = {-Float.MAX_VALUE, Float.MAX_VALUE})
     protected Vector3f end = new Vector3f(3, 0, 0);
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.beam.config.width")
+    @Configurable(name = "photon.gui.editor.config.width", tips = "photon.emitter.beam.config.width")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, min = 0, curveConfig = @CurveConfig(bound = {0, 1}, xAxis = "duration", yAxis = "width"))
     protected NumberFunction width = NumberFunction.constant(0.2);
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.beam.config.emitRate")
+    @Configurable(name = "photon.gui.editor.config.emit_rate", tips = "photon.emitter.beam.config.emitRate")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, curveConfig = @CurveConfig(bound = {0, 1}, xAxis = "duration", yAxis = "width"))
     protected NumberFunction emitRate = NumberFunction.constant(0);
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.beam.config.color")
+    @Configurable(name = "photon.gui.editor.config.color", tips = "photon.emitter.beam.config.color")
     @NumberFunctionConfig(types = {Color.class, RandomColor.class, Gradient.class, RandomGradient.class}, defaultValue = -1)
     protected NumberFunction color = new Color();
     @Getter
-    @Configurable(name = "Material", subConfigurable = true, tips = "photon.emitter.config.material")
+    @Configurable(name = "photon.gui.editor.config.material", subConfigurable = true, tips = "photon.emitter.config.material")
     public final MaterialSetting material = new MaterialSetting();
     @Getter
-    @Configurable(name = "Renderer", subConfigurable = true, tips = "photon.emitter.config.renderer")
+    @Configurable(name = "photon.gui.editor.config.renderer", subConfigurable = true, tips = "photon.emitter.config.renderer")
     public final RendererSetting renderer = new RendererSetting();
-    @Configurable(name = "UV Animation", subConfigurable = true, tips = "photon.emitter.config.uvAnimation")
+    @Configurable(name = "photon.gui.editor.config.uv_animation", subConfigurable = true, tips = "photon.emitter.config.uvAnimation")
     public final UVAnimationSetting uvAnimation = new UVAnimationSetting();
     @Getter
-    @Configurable(name = "Fixed Light", subConfigurable = true, tips = "photon.emitter.config.lights")
+    @Configurable(name = "photon.gui.editor.config.fixed_light", subConfigurable = true, tips = "photon.emitter.config.lights")
     public final LightOverLifetimeSetting lights = new LightOverLifetimeSetting();
 
     // runtime

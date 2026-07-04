@@ -23,7 +23,7 @@ public class Box implements IShape {
     }
 
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.emit_from")
     private Type emitFrom = Type.Volume;
 
     @Override

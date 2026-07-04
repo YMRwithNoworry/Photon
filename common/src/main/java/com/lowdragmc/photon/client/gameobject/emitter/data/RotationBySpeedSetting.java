@@ -28,19 +28,19 @@ import net.minecraft.util.Mth;
 @Getter
 public class RotationBySpeedSetting extends ToggleGroup {
 
-    @Configurable(tips = "photon.emitter.config.rotation.roll")
+    @Configurable(name = "photon.gui.editor.config.roll", tips = "photon.emitter.config.rotation.roll")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, wheelDur = 10, curveConfig = @CurveConfig(bound = {0, 360}, xAxis = "speed", yAxis = "roll"))
     protected NumberFunction roll = NumberFunction.constant(0);
 
-    @Configurable(tips = "photon.emitter.config.rotation.pitch")
+    @Configurable(name = "photon.gui.editor.config.pitch", tips = "photon.emitter.config.rotation.pitch")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, wheelDur = 10, curveConfig = @CurveConfig(bound = {0, 360}, xAxis = "speed", yAxis = "pitch"))
     protected NumberFunction pitch = NumberFunction.constant(0);
 
-    @Configurable(tips = "photon.emitter.config.rotation.yaw")
+    @Configurable(name = "photon.gui.editor.config.yaw", tips = "photon.emitter.config.rotation.yaw")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, wheelDur = 10, curveConfig = @CurveConfig(bound = {0, 360}, xAxis = "speed", yAxis = "yaw"))
     protected NumberFunction yaw = NumberFunction.constant(0);
 
-    @Configurable(tips = "photon.emitter.config.rotationBySpeed.speedRange")
+    @Configurable(name = "photon.gui.editor.config.speed_range", tips = "photon.emitter.config.rotationBySpeed.speedRange")
     @NumberRange(range = {0, 1000})
     protected Range speedRange = new Range(0f, 1f);
 

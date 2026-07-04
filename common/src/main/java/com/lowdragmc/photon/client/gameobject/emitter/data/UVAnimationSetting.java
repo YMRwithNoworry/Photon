@@ -31,30 +31,30 @@ public class UVAnimationSetting extends ToggleGroup {
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.uvAnimation.tiles")
+    @Configurable(name = "photon.gui.editor.config.tiles", tips = "photon.emitter.config.uvAnimation.tiles")
     @NumberRange(range = {1, Integer.MAX_VALUE})
     protected Range tiles = new Range(1, 1);
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.uvAnimation.animation")
+    @Configurable(name = "photon.gui.editor.config.animation", tips = "photon.emitter.config.uvAnimation.animation")
     protected Animation animation = Animation.WholeSheet;
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.uvAnimation.frameOverTime")
+    @Configurable(name = "photon.gui.editor.config.frame_over_time", tips = "photon.emitter.config.uvAnimation.frameOverTime")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class, Curve.class, RandomCurve.class}, min = 0, curveConfig = @CurveConfig(bound = {0, 4}, xAxis = "lifetime", yAxis = "frame over time"))
     protected NumberFunction frameOverTime = NumberFunction.constant(0);
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.uvAnimation.startFrame")
+    @Configurable(name = "photon.gui.editor.config.start_frame", tips = "photon.emitter.config.uvAnimation.startFrame")
     @NumberFunctionConfig(types = {Constant.class, RandomConstant.class}, min = 0)
     protected NumberFunction startFrame = NumberFunction.constant(0);
 
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.uvAnimation.cycle")
+    @Configurable(name = "photon.gui.editor.config.cycle", tips = "photon.emitter.config.uvAnimation.cycle")
     @NumberRange(range = {0, Integer.MAX_VALUE}, wheel = 1)
     protected float cycle = 1;
 

@@ -43,71 +43,71 @@ import javax.annotation.Nonnull;
 public class TrailConfig implements IPersistedSerializable {
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.duration")
+    @Configurable(name = "photon.gui.editor.config.duration", tips = "photon.emitter.config.duration")
     @NumberRange(range = {1, Integer.MAX_VALUE})
     protected int duration = 100;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.looping")
+    @Configurable(name = "photon.gui.editor.config.looping", tips = "photon.emitter.config.looping")
     protected boolean looping = true;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.config.startDelay")
+    @Configurable(name = "photon.gui.editor.config.start_delay", tips = "photon.emitter.config.startDelay")
     @NumberRange(range = {0, Integer.MAX_VALUE})
     protected int startDelay = 0;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.trail.config.time")
+    @Configurable(name = "photon.gui.editor.config.time", tips = "photon.emitter.trail.config.time")
     @NumberRange(range = {0f, Integer.MAX_VALUE})
     protected int time = 20;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.trail.config.minVertexDistance")
+    @Configurable(name = "photon.gui.editor.config.min_vertex_distance", tips = "photon.emitter.trail.config.minVertexDistance")
     @NumberRange(range = {0f, Float.MAX_VALUE})
     protected float minVertexDistance = 0.05f;
     @Getter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.smooth_interpolation", tips = {
             "photon.emitter.trail.config.smoothInterpolation.0",
             "photon.emitter.trail.config.smoothInterpolation.1",
     })
     protected boolean smoothInterpolation = false;
     @Getter
-//    @Configurable(tips = {
+//    @Configurable(name = "photon.gui.editor.config.calculate_smooth_by_shader", tips = {
 //            "photon.emitter.trail.config.calculateSmoothByShader.0",
 //            "photon.emitter.trail.config.calculateSmoothByShader.1",
 //    })
     protected boolean calculateSmoothByShader = false;
     @Setter
     @Getter
-    @Configurable(tips = {
+    @Configurable(name = "photon.gui.editor.config.parallel_rendering", tips = {
             "photon.emitter.config.parallelRendering.0",
             "photon.emitter.config.parallelRendering.1"})
     protected boolean parallelRendering = false;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.trail.config.uvMode")
+    @Configurable(name = "photon.gui.editor.config.uv_mode", tips = "photon.emitter.trail.config.uvMode")
     protected TrailParticle.UVMode uvMode = TrailParticle.UVMode.Stretch;
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.trail.config.widthOverTrail")
+    @Configurable(name = "photon.gui.editor.config.width_over_trail", tips = "photon.emitter.trail.config.widthOverTrail")
     @NumberFunctionConfig(types = {Constant.class, Curve.class}, min = 0, defaultValue = 0.1f, curveConfig = @CurveConfig(bound = {0, 0.1f}, xAxis = "trail position", yAxis = "width"))
     protected NumberFunction widthOverTrail = NumberFunction.constant(0.2f);
     @Setter
     @Getter
-    @Configurable(tips = "photon.emitter.trail.config.colorOverTrail")
+    @Configurable(name = "photon.gui.editor.config.color_over_trail", tips = "photon.emitter.trail.config.colorOverTrail")
     @NumberFunctionConfig(types = {Color.class, RandomColor.class, Gradient.class, RandomGradient.class}, defaultValue = -1)
     protected NumberFunction colorOverTrail = new Gradient();
     @Getter
-    @Configurable(name = "Material", subConfigurable = true, tips = "photon.emitter.config.material")
+    @Configurable(name = "photon.gui.editor.config.material", subConfigurable = true, tips = "photon.emitter.config.material")
     public final MaterialSetting material = new MaterialSetting();
     @Getter
-    @Configurable(name = "Renderer", subConfigurable = true, tips = "photon.emitter.config.renderer")
+    @Configurable(name = "photon.gui.editor.config.renderer", subConfigurable = true, tips = "photon.emitter.config.renderer")
     public final RendererSetting renderer = new RendererSetting();
     @Getter
-    @Configurable(name = "Fixed Light", subConfigurable = true, tips = "photon.emitter.config.lights")
+    @Configurable(name = "photon.gui.editor.config.fixed_light", subConfigurable = true, tips = "photon.emitter.config.lights")
     public final LightOverLifetimeSetting lights = new LightOverLifetimeSetting();
     @Getter
-    @Configurable(name = "UV Animation", subConfigurable = true, tips = "photon.emitter.config.uvAnimation")
+    @Configurable(name = "photon.gui.editor.config.uv_animation", subConfigurable = true, tips = "photon.emitter.config.uvAnimation")
     public final UVAnimationSetting uvAnimation = new UVAnimationSetting();
 
     // runtime

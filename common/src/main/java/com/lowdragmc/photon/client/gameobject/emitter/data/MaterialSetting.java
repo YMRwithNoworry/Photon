@@ -31,13 +31,13 @@ import java.util.HashMap;
 @Setter
 public class MaterialSetting implements IConfigurable, ITagSerializable<CompoundTag> {
 
-    @Configurable(name = "Blend Mode", subConfigurable = true)
+    @Configurable(name = "photon.gui.editor.config.blend_mode", subConfigurable = true)
     protected final BlendMode blendMode = new BlendMode();
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.cull")
     protected boolean cull = true;
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.depth_test")
     protected boolean depthTest = true;
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.depth_mask")
     protected boolean depthMask = false;
     @Nonnull
     protected IMaterial material = new TextureMaterial();

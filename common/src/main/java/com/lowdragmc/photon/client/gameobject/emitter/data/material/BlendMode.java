@@ -26,22 +26,22 @@ public class BlendMode {
     }
 
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.enable_blend")
     private boolean enableBlend;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.src_color_factor")
     private SourceFactor srcColorFactor;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.dst_color_factor")
     private DestFactor dstColorFactor;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.src_alpha_factor")
     private SourceFactor srcAlphaFactor;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.dst_alpha_factor")
     private DestFactor dstAlphaFactor;
     @Getter @Setter
-    @Configurable
+    @Configurable(name = "photon.gui.editor.config.blend_func")
     private BlendFuc blendFunc;
 
     private BlendMode(boolean enableBlend, SourceFactor srcColorFactor, DestFactor dstColorFactor, SourceFactor srcAlphaFactor, DestFactor dstAlphaFactor, BlendFuc blendFunc) {
